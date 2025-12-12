@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CarCard } from "@/components/CarCard";
-import { Search, SlidersHorizontal, Car } from "lucide-react";
+import { Search, SlidersHorizontal, CarFront } from "lucide-react";
 import { useState } from "react";
 
 import car1 from "@/assets/car-1.jpg";
@@ -110,7 +110,7 @@ const Cars = () => {
 
                 {/* Type Filter */}
                 <div className="relative">
-                  <Car className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
+                  <CarFront className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
                   <select
                     value={selectedType}
                     onChange={(e) => setSelectedType(e.target.value)}

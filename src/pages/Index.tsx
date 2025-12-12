@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { ApartmentCard } from "@/components/ApartmentCard";
 import { CarCard } from "@/components/CarCard";
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Car, Star, Shield, Clock, Sparkles } from "lucide-react";
+import { ArrowRight, Building2, CarFront, Shield, Clock, Sparkles } from "lucide-react";
 
 import heroImage from "@/assets/hero-apartment.jpg";
 import apartment1 from "@/assets/apartment-1.jpg";
@@ -26,7 +26,6 @@ const apartments = [
     bedrooms: 2,
     bathrooms: 2,
     sqft: 1200,
-    rating: 4.9,
     featured: true,
   },
   {
@@ -38,7 +37,6 @@ const apartments = [
     bedrooms: 3,
     bathrooms: 2,
     sqft: 1500,
-    rating: 4.8,
   },
   {
     id: "green-valley",
@@ -49,7 +47,6 @@ const apartments = [
     bedrooms: 1,
     bathrooms: 1,
     sqft: 850,
-    rating: 4.7,
   },
 ];
 
@@ -136,14 +133,14 @@ const Index = () => {
         <div className="relative container mx-auto px-4 md:px-6 pt-24">
           <div className="max-w-2xl space-y-8">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/30">
-                <Star className="w-4 h-4 text-primary fill-primary" />
+              <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/30 animate-fade-up">
+                <Sparkles className="w-4 h-4 text-primary" />
                 <span className="text-primary-foreground text-sm font-medium">Premium Living & Mobility</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground leading-tight animate-fade-up">
-                Your Perfect
-                <span className="block text-gradient">Stay & Drive</span>
+              <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground leading-tight animate-fade-up stagger-1">
+                Welcome to
+                <span className="block text-gradient">Mighty Love Inn</span>
               </h1>
               
               <p className="text-xl text-primary-foreground/80 max-w-lg animate-fade-up stagger-2">
@@ -162,7 +159,7 @@ const Index = () => {
               </Link>
               <Link to="/cars">
                 <Button variant="heroOutline" size="xl" className="group w-full sm:w-auto">
-                  <Car className="w-5 h-5" />
+                  <CarFront className="w-5 h-5" />
                   Rent a Car
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Button>

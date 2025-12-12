@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Car, Fuel, Users, Gauge } from "lucide-react";
+import { Fuel, Users, Gauge, CarFront } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CarCardProps {
@@ -25,6 +25,9 @@ export const CarCard = ({
   fuelType,
   featured = false,
 }: CarCardProps) => {
+  // Calculate monthly price (price * 30 days)
+  const monthlyPrice = price * 30;
+  
   return (
     <Link
       to={`/cars/${id}`}
@@ -42,14 +45,16 @@ export const CarCard = ({
         />
         
         {/* Type Badge */}
-        <div className="absolute top-4 left-4 bg-foreground text-primary-foreground rounded-full px-4 py-1.5 text-sm font-semibold">
+        <div className="absolute top-4 left-4 bg-foreground text-primary-foreground rounded-full px-4 py-1.5 text-sm font-semibold flex items-center gap-1.5">
+          <CarFront size={14} />
           {type}
         </div>
         
         {/* Price Tag */}
         <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground rounded-2xl px-4 py-2 shadow-lg">
-          <span className="font-bold text-lg">${price}</span>
-          <span className="text-primary-foreground/80 text-sm">/day</span>
+          <span className="text-sm">From </span>
+          <span className="font-bold text-lg">${monthlyPrice.toLocaleString()}</span>
+          <span className="text-primary-foreground/80 text-sm"> / month</span>
         </div>
       </div>
 
