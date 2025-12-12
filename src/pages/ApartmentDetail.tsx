@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { 
-  MapPin, Star, Bed, Bath, Square, Wifi, Car, Tv, 
-  Wind, Coffee, Utensils, ArrowLeft, Calendar, Check
+  MapPin, Bed, Bath, Square, Wifi, CarFront, Tv, 
+  Wind, Coffee, Utensils, ArrowLeft, Calendar, Check, Play
 } from "lucide-react";
 import { useState } from "react";
 
@@ -19,15 +19,14 @@ const apartmentData: Record<string, any> = {
     location: "Downtown Plaza, Central City",
     price: 189,
     images: [apartment1, apartment2, apartment3],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
     bedrooms: 2,
     bathrooms: 2,
     sqft: 1200,
-    rating: 4.9,
-    reviews: 127,
     description: "Experience luxury urban living in our stunning Downtown Plaza Suite. This spacious apartment offers panoramic city views, modern amenities, and is steps away from the best restaurants, shops, and entertainment venues the city has to offer.",
     amenities: [
       { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: Car, label: "Free Parking" },
+      { icon: CarFront, label: "Free Parking" },
       { icon: Tv, label: "Smart TV" },
       { icon: Wind, label: "Air Conditioning" },
       { icon: Coffee, label: "Coffee Machine" },
@@ -47,15 +46,14 @@ const apartmentData: Record<string, any> = {
     location: "Coastal District, Seaside",
     price: 249,
     images: [apartment2, apartment1, apartment3],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
     bedrooms: 3,
     bathrooms: 2,
     sqft: 1500,
-    rating: 4.8,
-    reviews: 94,
     description: "Wake up to breathtaking ocean views in our premium Oceanview Heights apartment. Featuring a spacious balcony, modern design, and direct beach access, this is the ultimate coastal getaway for those seeking relaxation and luxury.",
     amenities: [
       { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: Car, label: "Free Parking" },
+      { icon: CarFront, label: "Free Parking" },
       { icon: Tv, label: "Smart TV" },
       { icon: Wind, label: "Air Conditioning" },
       { icon: Coffee, label: "Coffee Machine" },
@@ -75,15 +73,14 @@ const apartmentData: Record<string, any> = {
     location: "Green Valley, Suburban Heights",
     price: 159,
     images: [apartment3, apartment1, apartment2],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
     bedrooms: 1,
     bathrooms: 1,
     sqft: 850,
-    rating: 4.7,
-    reviews: 78,
     description: "Escape to tranquility in our cozy Green Valley Residence. Surrounded by lush greenery and natural beauty, this eco-friendly apartment offers a peaceful retreat while still being conveniently close to city amenities.",
     amenities: [
       { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: Car, label: "Free Parking" },
+      { icon: CarFront, label: "Free Parking" },
       { icon: Tv, label: "Smart TV" },
       { icon: Wind, label: "Air Conditioning" },
       { icon: Coffee, label: "Coffee Machine" },
@@ -98,6 +95,84 @@ const apartmentData: Record<string, any> = {
       "Pets welcome",
     ],
   },
+  "downtown-studio": {
+    name: "Downtown Studio Loft",
+    location: "Downtown Plaza, Central City",
+    price: 129,
+    images: [apartment1, apartment2, apartment3],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
+    bedrooms: 1,
+    bathrooms: 1,
+    sqft: 600,
+    description: "A cozy and modern studio loft in the heart of downtown. Perfect for solo travelers or couples looking for a stylish urban retreat with all the essentials.",
+    amenities: [
+      { icon: Wifi, label: "High-Speed WiFi" },
+      { icon: CarFront, label: "Free Parking" },
+      { icon: Tv, label: "Smart TV" },
+      { icon: Wind, label: "Air Conditioning" },
+      { icon: Coffee, label: "Coffee Machine" },
+      { icon: Utensils, label: "Kitchenette" },
+    ],
+    terms: [
+      "Minimum stay: 1 night",
+      "Check-in: 3:00 PM - 11:00 PM",
+      "Check-out: 11:00 AM",
+      "No smoking",
+      "No parties or events",
+    ],
+  },
+  "oceanview-penthouse": {
+    name: "Oceanview Penthouse",
+    location: "Coastal District, Seaside",
+    price: 399,
+    images: [apartment2, apartment1, apartment3],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2200,
+    description: "The ultimate luxury penthouse with panoramic ocean views. This stunning property features multiple bedrooms, a private terrace, and premium finishes throughout.",
+    amenities: [
+      { icon: Wifi, label: "High-Speed WiFi" },
+      { icon: CarFront, label: "Private Garage" },
+      { icon: Tv, label: "Smart TV in Every Room" },
+      { icon: Wind, label: "Climate Control" },
+      { icon: Coffee, label: "Espresso Machine" },
+      { icon: Utensils, label: "Chef's Kitchen" },
+    ],
+    terms: [
+      "Minimum stay: 3 nights",
+      "Check-in: 3:00 PM - 9:00 PM",
+      "Check-out: 11:00 AM",
+      "No smoking",
+      "No parties without approval",
+    ],
+  },
+  "green-valley-family": {
+    name: "Green Valley Family Home",
+    location: "Green Valley, Suburban Heights",
+    price: 219,
+    images: [apartment3, apartment1, apartment2],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1800,
+    description: "A spacious family home surrounded by nature. Perfect for families looking for a comfortable stay with plenty of space for everyone.",
+    amenities: [
+      { icon: Wifi, label: "High-Speed WiFi" },
+      { icon: CarFront, label: "2-Car Garage" },
+      { icon: Tv, label: "Smart TV" },
+      { icon: Wind, label: "Central AC" },
+      { icon: Coffee, label: "Coffee Station" },
+      { icon: Utensils, label: "Full Kitchen" },
+    ],
+    terms: [
+      "Minimum stay: 2 nights",
+      "Check-in: 3:00 PM - 10:00 PM",
+      "Check-out: 11:00 AM",
+      "No smoking",
+      "Pets welcome",
+    ],
+  },
 };
 
 const ApartmentDetail = () => {
@@ -106,6 +181,7 @@ const ApartmentDetail = () => {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(2);
+  const [showVideo, setShowVideo] = useState(false);
 
   const apartment = apartmentData[id || "downtown-plaza"];
 
@@ -137,14 +213,49 @@ const ApartmentDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Image Gallery */}
+              {/* Video Section */}
               <AnimatedSection>
+                <div className="space-y-4">
+                  <div className="relative aspect-video rounded-3xl overflow-hidden bg-secondary group">
+                    {showVideo ? (
+                      <iframe
+                        src={apartment.videoUrl}
+                        className="w-full h-full"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <>
+                        <img
+                          src={apartment.images[0]}
+                          alt={`${apartment.name} video thumbnail`}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-foreground/30 flex items-center justify-center">
+                          <button
+                            onClick={() => setShowVideo(true)}
+                            className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-glow hover:scale-110 transition-transform duration-300"
+                          >
+                            <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
+                          </button>
+                        </div>
+                        <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-2">
+                          <span className="text-sm font-medium text-foreground">Watch Property Tour</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* Image Gallery */}
+              <AnimatedSection delay={100}>
                 <div className="space-y-4">
                   <div className="aspect-[16/9] rounded-3xl overflow-hidden">
                     <img
                       src={apartment.images[selectedImage]}
                       alt={apartment.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500"
                     />
                   </div>
                   <div className="grid grid-cols-3 gap-4">
@@ -152,7 +263,7 @@ const ApartmentDetail = () => {
                       <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
-                        className={`aspect-video rounded-xl overflow-hidden ring-2 transition-all ${
+                        className={`aspect-video rounded-xl overflow-hidden ring-2 transition-all duration-300 hover:scale-105 ${
                           selectedImage === index ? "ring-primary" : "ring-transparent hover:ring-primary/50"
                         }`}
                       >
@@ -164,7 +275,7 @@ const ApartmentDetail = () => {
               </AnimatedSection>
 
               {/* Details */}
-              <AnimatedSection delay={100}>
+              <AnimatedSection delay={200}>
                 <div className="space-y-6">
                   <div>
                     <div className="flex items-center gap-2 text-primary font-semibold mb-2">
@@ -172,26 +283,19 @@ const ApartmentDetail = () => {
                       {apartment.location}
                     </div>
                     <h1 className="text-3xl md:text-4xl font-bold text-foreground">{apartment.name}</h1>
-                    <div className="flex items-center gap-4 mt-3">
-                      <div className="flex items-center gap-1">
-                        <Star size={18} className="text-primary fill-primary" />
-                        <span className="font-semibold">{apartment.rating}</span>
-                        <span className="text-muted-foreground">({apartment.reviews} reviews)</span>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-6 py-6 border-y border-border">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
                       <Bed size={20} className="text-primary" />
                       <span>{apartment.bedrooms} Bedrooms</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
                       <Bath size={20} className="text-primary" />
                       <span>{apartment.bathrooms} Bathrooms</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
                       <Square size={20} className="text-primary" />
                       <span>{apartment.sqft} sqft</span>
                     </div>
@@ -207,8 +311,12 @@ const ApartmentDetail = () => {
                   <div>
                     <h2 className="text-xl font-bold text-foreground mb-4">Amenities</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      {apartment.amenities.map((amenity: any) => (
-                        <div key={amenity.label} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
+                      {apartment.amenities.map((amenity: any, index: number) => (
+                        <div 
+                          key={amenity.label} 
+                          className="flex items-center gap-3 p-3 rounded-xl bg-secondary hover:bg-primary/10 transition-colors duration-300"
+                          style={{ animationDelay: `${index * 50}ms` }}
+                        >
                           <amenity.icon size={20} className="text-primary" />
                           <span className="text-sm">{amenity.label}</span>
                         </div>
@@ -220,8 +328,12 @@ const ApartmentDetail = () => {
                   <div>
                     <h2 className="text-xl font-bold text-foreground mb-4">Rental Terms</h2>
                     <ul className="space-y-2">
-                      {apartment.terms.map((term: string) => (
-                        <li key={term} className="flex items-center gap-2 text-muted-foreground">
+                      {apartment.terms.map((term: string, index: number) => (
+                        <li 
+                          key={term} 
+                          className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                          style={{ animationDelay: `${index * 50}ms` }}
+                        >
                           <Check size={16} className="text-primary" />
                           {term}
                         </li>
@@ -234,11 +346,11 @@ const ApartmentDetail = () => {
 
             {/* Booking Card */}
             <div className="lg:col-span-1">
-              <AnimatedSection delay={200}>
+              <AnimatedSection delay={300}>
                 <div className="sticky top-28 bg-card rounded-3xl shadow-card p-6 space-y-6">
                   <div className="flex items-end gap-2">
                     <span className="text-3xl font-bold text-foreground">${apartment.price}</span>
-                    <span className="text-muted-foreground">/night</span>
+                    <span className="text-muted-foreground">/ day</span>
                   </div>
 
                   <div className="space-y-4">
@@ -251,7 +363,7 @@ const ApartmentDetail = () => {
                             type="date"
                             value={checkIn}
                             onChange={(e) => setCheckIn(e.target.value)}
-                            className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                           />
                         </div>
                       </div>
@@ -263,7 +375,7 @@ const ApartmentDetail = () => {
                             type="date"
                             value={checkOut}
                             onChange={(e) => setCheckOut(e.target.value)}
-                            className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                           />
                         </div>
                       </div>
@@ -274,7 +386,7 @@ const ApartmentDetail = () => {
                       <select
                         value={guests}
                         onChange={(e) => setGuests(Number(e.target.value))}
-                        className="w-full px-4 py-3 rounded-xl bg-secondary border-0 text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-4 py-3 rounded-xl bg-secondary border-0 text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                       >
                         {[1, 2, 3, 4, 5, 6].map((num) => (
                           <option key={num} value={num}>{num} Guest{num > 1 ? "s" : ""}</option>
@@ -283,9 +395,11 @@ const ApartmentDetail = () => {
                     </div>
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full">
-                    Book This Apartment
-                  </Button>
+                  <Link to="/contact">
+                    <Button variant="hero" size="lg" className="w-full">
+                      Book This Apartment
+                    </Button>
+                  </Link>
 
                   <p className="text-center text-sm text-muted-foreground">
                     You won't be charged yet
@@ -293,7 +407,7 @@ const ApartmentDetail = () => {
 
                   <div className="space-y-3 pt-4 border-t border-border">
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">${apartment.price} x 3 nights</span>
+                      <span className="text-muted-foreground">${apartment.price} x 3 days</span>
                       <span className="text-foreground">${apartment.price * 3}</span>
                     </div>
                     <div className="flex justify-between text-sm">

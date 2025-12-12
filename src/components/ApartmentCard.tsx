@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Star, Bed, Bath, Square } from "lucide-react";
+import { MapPin, Bed, Bath, Square } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ApartmentCardProps {
@@ -11,7 +11,6 @@ interface ApartmentCardProps {
   bedrooms: number;
   bathrooms: number;
   sqft: number;
-  rating: number;
   featured?: boolean;
 }
 
@@ -24,9 +23,11 @@ export const ApartmentCard = ({
   bedrooms,
   bathrooms,
   sqft,
-  rating,
   featured = false,
 }: ApartmentCardProps) => {
+  // Calculate monthly price (price * 30 days)
+  const monthlyPrice = price * 30;
+  
   return (
     <Link
       to={`/apartments/${id}`}
@@ -44,16 +45,11 @@ export const ApartmentCard = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
-        {/* Rating Badge */}
-        <div className="absolute top-4 left-4 bg-card/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-soft">
-          <Star size={14} className="text-primary fill-primary" />
-          <span className="text-sm font-semibold text-foreground">{rating}</span>
-        </div>
-        
         {/* Price Tag */}
-        <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground rounded-2xl px-4 py-2 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-          <span className="font-bold text-lg">${price}</span>
-          <span className="text-primary-foreground/80 text-sm">/night</span>
+        <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground rounded-2xl px-4 py-2 shadow-lg">
+          <span className="text-sm">From </span>
+          <span className="font-bold text-lg">${monthlyPrice.toLocaleString()}</span>
+          <span className="text-primary-foreground/80 text-sm"> / month</span>
         </div>
       </div>
 

@@ -107,6 +107,29 @@ const carData: Record<string, any> = {
       { label: "Charging", value: "30 min (80%)" },
     ],
   },
+  "compact-city": {
+    name: "Compact City Car",
+    type: "Economy",
+    pricePerDay: 49,
+    pricePerWeek: 279,
+    images: [car4, car1, car2],
+    seats: 4,
+    transmission: "Automatic",
+    fuelType: "Petrol",
+    description: "Perfect for city driving and budget-conscious travelers. This compact car offers excellent fuel economy, easy parking, and all the essentials for comfortable urban transportation.",
+    features: [
+      { icon: Snowflake, label: "Air Conditioning" },
+      { icon: Radio, label: "Bluetooth Audio" },
+      { icon: Shield, label: "Safety Package" },
+      { icon: Navigation, label: "GPS Navigation" },
+    ],
+    specs: [
+      { label: "Engine", value: "1.5L 4-Cyl" },
+      { label: "Power", value: "120 HP" },
+      { label: "0-60 mph", value: "9.8 sec" },
+      { label: "Fuel Economy", value: "42 mpg" },
+    ],
+  },
 };
 
 const CarDetail = () => {
@@ -151,11 +174,11 @@ const CarDetail = () => {
               {/* Image Gallery */}
               <AnimatedSection>
                 <div className="space-y-4">
-                  <div className="aspect-[16/9] rounded-3xl overflow-hidden bg-secondary">
+                  <div className="aspect-[16/9] rounded-3xl overflow-hidden bg-secondary group">
                     <img
                       src={car.images[selectedImage]}
                       alt={car.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                   <div className="grid grid-cols-3 gap-4">
@@ -163,7 +186,7 @@ const CarDetail = () => {
                       <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
-                        className={`aspect-video rounded-xl overflow-hidden ring-2 transition-all ${
+                        className={`aspect-video rounded-xl overflow-hidden ring-2 transition-all duration-300 hover:scale-105 ${
                           selectedImage === index ? "ring-primary" : "ring-transparent hover:ring-primary/50"
                         }`}
                       >
@@ -186,15 +209,15 @@ const CarDetail = () => {
 
                   {/* Quick Specs */}
                   <div className="flex flex-wrap gap-6 py-6 border-y border-border">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
                       <Users size={20} className="text-primary" />
                       <span>{car.seats} Seats</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
                       <Gauge size={20} className="text-primary" />
                       <span>{car.transmission}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
                       <Fuel size={20} className="text-primary" />
                       <span>{car.fuelType}</span>
                     </div>
@@ -210,8 +233,12 @@ const CarDetail = () => {
                   <div>
                     <h2 className="text-xl font-bold text-foreground mb-4">Features</h2>
                     <div className="grid grid-cols-2 gap-4">
-                      {car.features.map((feature: any) => (
-                        <div key={feature.label} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
+                      {car.features.map((feature: any, index: number) => (
+                        <div 
+                          key={feature.label} 
+                          className="flex items-center gap-3 p-3 rounded-xl bg-secondary hover:bg-primary/10 transition-colors duration-300"
+                          style={{ animationDelay: `${index * 50}ms` }}
+                        >
                           <feature.icon size={20} className="text-primary" />
                           <span className="text-sm">{feature.label}</span>
                         </div>
@@ -223,8 +250,12 @@ const CarDetail = () => {
                   <div>
                     <h2 className="text-xl font-bold text-foreground mb-4">Specifications</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {car.specs.map((spec: any) => (
-                        <div key={spec.label} className="text-center p-4 rounded-xl bg-secondary">
+                      {car.specs.map((spec: any, index: number) => (
+                        <div 
+                          key={spec.label} 
+                          className="text-center p-4 rounded-xl bg-secondary hover:bg-primary/10 transition-colors duration-300"
+                          style={{ animationDelay: `${index * 50}ms` }}
+                        >
                           <div className="text-2xl font-bold text-primary">{spec.value}</div>
                           <div className="text-sm text-muted-foreground mt-1">{spec.label}</div>
                         </div>
@@ -243,16 +274,16 @@ const CarDetail = () => {
                   <div className="flex bg-secondary rounded-xl p-1">
                     <button
                       onClick={() => setRentalType("daily")}
-                      className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all ${
-                        rentalType === "daily" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                      className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                        rentalType === "daily" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       Daily
                     </button>
                     <button
                       onClick={() => setRentalType("weekly")}
-                      className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all ${
-                        rentalType === "weekly" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                      className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                        rentalType === "weekly" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       Weekly
@@ -261,7 +292,7 @@ const CarDetail = () => {
 
                   <div className="flex items-end gap-2">
                     <span className="text-3xl font-bold text-foreground">${price}</span>
-                    <span className="text-muted-foreground">/{rentalType === "daily" ? "day" : "week"}</span>
+                    <span className="text-muted-foreground">/ {rentalType === "daily" ? "day" : "week"}</span>
                   </div>
 
                   <div className="space-y-4">
@@ -273,7 +304,7 @@ const CarDetail = () => {
                           type="date"
                           value={pickupDate}
                           onChange={(e) => setPickupDate(e.target.value)}
-                          className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                          className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                         />
                       </div>
                     </div>
@@ -285,15 +316,17 @@ const CarDetail = () => {
                           type="date"
                           value={returnDate}
                           onChange={(e) => setReturnDate(e.target.value)}
-                          className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                          className="w-full pl-10 pr-3 py-3 rounded-xl bg-secondary border-0 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full">
-                    Rent This Car
-                  </Button>
+                  <Link to="/contact">
+                    <Button variant="hero" size="lg" className="w-full">
+                      Rent This Car
+                    </Button>
+                  </Link>
 
                   <div className="space-y-2 pt-4 border-t border-border">
                     {[
@@ -301,8 +334,12 @@ const CarDetail = () => {
                       "Unlimited mileage",
                       "Full insurance included",
                       "24/7 roadside assistance",
-                    ].map((item) => (
-                      <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    ].map((item, index) => (
+                      <div 
+                        key={item} 
+                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
                         <Check size={16} className="text-primary" />
                         {item}
                       </div>

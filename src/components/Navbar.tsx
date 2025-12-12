@@ -38,13 +38,13 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft group-hover:shadow-glow transition-all duration-300">
-              <span className="text-primary-foreground font-bold text-lg">P</span>
+              <span className="text-primary-foreground font-bold text-lg">M</span>
             </div>
             <span className={cn(
               "font-bold text-xl transition-colors duration-300",
               scrolled ? "text-foreground" : "text-primary-foreground"
             )}>
-              PrimeStay
+              Mighty Love Inn
             </span>
           </Link>
 

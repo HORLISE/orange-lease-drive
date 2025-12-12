@@ -20,7 +20,6 @@ const apartments = [
     bedrooms: 2,
     bathrooms: 2,
     sqft: 1200,
-    rating: 4.9,
   },
   {
     id: "oceanview-heights",
@@ -31,7 +30,6 @@ const apartments = [
     bedrooms: 3,
     bathrooms: 2,
     sqft: 1500,
-    rating: 4.8,
   },
   {
     id: "green-valley",
@@ -42,7 +40,6 @@ const apartments = [
     bedrooms: 1,
     bathrooms: 1,
     sqft: 850,
-    rating: 4.7,
   },
   {
     id: "downtown-studio",
@@ -53,7 +50,6 @@ const apartments = [
     bedrooms: 1,
     bathrooms: 1,
     sqft: 600,
-    rating: 4.6,
   },
   {
     id: "oceanview-penthouse",
@@ -64,7 +60,6 @@ const apartments = [
     bedrooms: 4,
     bathrooms: 3,
     sqft: 2200,
-    rating: 5.0,
   },
   {
     id: "green-valley-family",
@@ -75,7 +70,6 @@ const apartments = [
     bedrooms: 3,
     bathrooms: 2,
     sqft: 1800,
-    rating: 4.8,
   },
 ];
 
@@ -162,7 +156,6 @@ const Apartments = () => {
               <option>Sort by: Featured</option>
               <option>Price: Low to High</option>
               <option>Price: High to Low</option>
-              <option>Rating: High to Low</option>
             </select>
           </div>
 

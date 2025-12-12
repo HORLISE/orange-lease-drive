@@ -10,9 +10,9 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">P</span>
+                <span className="text-primary-foreground font-bold text-lg">M</span>
               </div>
-              <span className="font-bold text-xl">PrimeStay</span>
+              <span className="font-bold text-xl">Mighty Love Inn</span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               Premium apartments and vehicles for your perfect stay. Experience luxury living and seamless mobility under one roof.
@@ -77,9 +77,9 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@primestay.com" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary transition-colors duration-300">
+                <a href="mailto:hello@mightyloveinn.com" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary transition-colors duration-300">
                   <Mail size={16} className="text-primary" />
-                  hello@primestay.com
+                  hello@mightyloveinn.com
                 </a>
               </li>
             </ul>
@@ -88,7 +88,7 @@ export const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/50 text-sm">
-            © 2024 PrimeStay. All rights reserved.
+            © 2024 Mighty Love Inn. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-primary-foreground/50">
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
