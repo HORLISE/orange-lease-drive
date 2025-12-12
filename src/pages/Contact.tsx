@@ -2,27 +2,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
+  const whatsappNumber = "+1234567890"; // Replace with actual WhatsApp number
+  const whatsappMessage = "Hello! I'm interested in your apartments and car rental services.";
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -104,70 +89,29 @@ const Contact = () => {
               </div>
             </AnimatedSection>
 
-            {/* Contact Form */}
+            {/* WhatsApp Contact */}
             <AnimatedSection delay={200}>
-              <div className="bg-card rounded-3xl shadow-card p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Send us a message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm text-muted-foreground mb-2 block">Your Name</label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Doe"
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-sm text-muted-foreground mb-2 block">Email Address</label>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@example.com"
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Subject</label>
-                    <select
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      required
-                      className="w-full px-4 py-3 rounded-xl bg-secondary border-0 text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    >
-                      <option value="">Select a topic</option>
-                      <option value="apartment">Apartment Booking</option>
-                      <option value="car">Car Rental</option>
-                      <option value="support">Customer Support</option>
-                      <option value="partnership">Business Partnership</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Message</label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us how we can help..."
-                      rows={5}
-                      required
-                      className="w-full px-4 py-3 rounded-xl bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                    />
-                  </div>
-
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    <Send className="w-5 h-5" />
-                    Send Message
+              <div className="bg-card rounded-3xl shadow-card p-8 text-center">
+                <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
+                  <MessageCircle className="w-10 h-10 text-green-500" />
+                </div>
+                <h2 className="text-2xl font-bold text-foreground mb-4">Chat with us on WhatsApp</h2>
+                <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                  Get instant responses! Message us directly on WhatsApp for quick inquiries about apartments, car rentals, or any questions.
+                </p>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="hero" size="lg" className="bg-green-500 hover:bg-green-600">
+                    <MessageCircle className="w-5 h-5" />
+                    Start WhatsApp Chat
                   </Button>
-                </form>
+                </a>
+                <p className="text-sm text-muted-foreground mt-6">
+                  Available 24/7 • Usually replies within minutes
+                </p>
               </div>
             </AnimatedSection>
           </div>
