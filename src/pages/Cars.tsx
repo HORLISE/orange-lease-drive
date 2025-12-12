@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CarCard } from "@/components/CarCard";
-import { Search, SlidersHorizontal, CarFront } from "lucide-react";
+import { SlidersHorizontal, CarFront } from "lucide-react";
 import { useState } from "react";
 
 import car1 from "@/assets/car-1.jpg";
@@ -96,18 +96,8 @@ const Cars = () => {
 
           {/* Search & Filters */}
           <AnimatedSection delay={200}>
-            <div className="bg-card rounded-3xl shadow-card p-6 max-w-4xl mx-auto">
-              <div className="flex flex-col md:flex-row gap-4">
-                {/* Search Input */}
-                <div className="flex-1 relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
-                  <input
-                    type="text"
-                    placeholder="Search vehicles..."
-                    className="w-full pl-12 pr-4 py-3 rounded-xl bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
+            <div className="bg-card rounded-3xl shadow-card p-6 max-w-2xl mx-auto">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Type Filter */}
                 <div className="relative">
                   <CarFront className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
