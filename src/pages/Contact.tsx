@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
-  const whatsappNumber = "+1234567890"; // Replace with actual WhatsApp number
+  const whatsappNumber = "250780399998";
   const whatsappMessage = "Hello! I'm interested in your apartments and car rental services.";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 

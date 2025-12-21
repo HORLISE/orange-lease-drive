@@ -161,7 +161,7 @@ const CarDetail = () => {
 
   const price = rentalType === "daily" ? car.pricePerDay : rentalType === "weekly" ? car.pricePerWeek : car.pricePerMonth;
 
-  const whatsappNumber = "1234567890"; // Replace with actual WhatsApp number
+  const whatsappNumber = "250780399998";
   const rentalLabel = rentalType === "daily" ? "day" : rentalType === "weekly" ? "week" : "month";
   const whatsappMessage = encodeURIComponent(
     `Hi! I'm interested in renting the ${car.name}.\n\n` +
