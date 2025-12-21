@@ -6,8 +6,13 @@ import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const whatsappNumber = "250780399998";
+  const phoneDigits = whatsappNumber.replace(/[^0-9]/g, "");
   const whatsappMessage = "Hello! I'm interested in your apartments and car rental services.";
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
+  const encodedText = encodeURIComponent(whatsappMessage);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const whatsappLink = isMobile
+    ? `https://wa.me/${phoneDigits}?text=${encodedText}`
+    : `https://web.whatsapp.com/send?phone=${phoneDigits}&text=${encodedText}`;
 
   return (
     <div className="min-h-screen bg-background">
