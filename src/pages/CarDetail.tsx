@@ -159,19 +159,30 @@ const CarDetail = () => {
     );
   }
 
-  const price = rentalType === "daily" ? car.pricePerDay : rentalType === "weekly" ? car.pricePerWeek : car.pricePerMonth;
+  const price =
+    rentalType === "daily"
+      ? car.pricePerDay
+      : rentalType === "weekly"
+      ? car.pricePerWeek
+      : car.pricePerMonth;
 
   const whatsappNumber = "250780399998";
+  const phoneDigits = whatsappNumber.replace(/[^0-9]/g, "");
   const rentalLabel = rentalType === "daily" ? "day" : rentalType === "weekly" ? "week" : "month";
-  const whatsappMessage = encodeURIComponent(
+
+  const whatsappText =
     `Hi! I'm interested in renting the ${car.name}.\n\n` +
     `Rental Type: ${rentalType.charAt(0).toUpperCase() + rentalType.slice(1)}\n` +
     `Price: $${price}/${rentalLabel}\n` +
     (pickupDate ? `Pick-up Date: ${pickupDate}\n` : "") +
     (returnDate ? `Return Date: ${returnDate}\n` : "") +
-    `\nPlease let me know the availability. Thank you!`
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    `\nPlease let me know the availability. Thank you!`;
+
+  const encodedText = encodeURIComponent(whatsappText);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const whatsappUrl = isMobile
+    ? `https://wa.me/${phoneDigits}?text=${encodedText}`
+    : `https://web.whatsapp.com/send?phone=${phoneDigits}&text=${encodedText}`;
 
   return (
     <div className="min-h-screen bg-background">
