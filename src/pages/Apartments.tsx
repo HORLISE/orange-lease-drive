@@ -90,16 +90,16 @@ const Apartments = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-32 pb-16 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="text-primary font-semibold">Our Properties</span>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-2 mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mt-2 mb-4">
                 Find Your Perfect
-                <span className="text-gradient"> Apartment</span>
+                <span className="text-primary"> Apartment</span>
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-primary-foreground/70 text-lg">
                 Explore our collection of premium apartments across three prime locations. 
                 Each property offers unique amenities and stunning views.
               </p>

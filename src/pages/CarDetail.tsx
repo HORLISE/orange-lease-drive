@@ -20,6 +20,7 @@ const carData: Record<string, any> = {
     type: "Luxury",
     pricePerDay: 89,
     pricePerWeek: 499,
+    pricePerMonth: 1699,
     images: [car1, car2, car3],
     seats: 5,
     transmission: "Automatic",
@@ -43,6 +44,7 @@ const carData: Record<string, any> = {
     type: "SUV",
     pricePerDay: 129,
     pricePerWeek: 699,
+    pricePerMonth: 2399,
     images: [car2, car1, car4],
     seats: 7,
     transmission: "Automatic",
@@ -66,6 +68,7 @@ const carData: Record<string, any> = {
     type: "Sports",
     pricePerDay: 199,
     pricePerWeek: 999,
+    pricePerMonth: 3499,
     images: [car3, car1, car2],
     seats: 2,
     transmission: "Manual",
@@ -89,6 +92,7 @@ const carData: Record<string, any> = {
     type: "Electric",
     pricePerDay: 99,
     pricePerWeek: 549,
+    pricePerMonth: 1899,
     images: [car4, car2, car1],
     seats: 5,
     transmission: "Automatic",
@@ -112,6 +116,7 @@ const carData: Record<string, any> = {
     type: "Economy",
     pricePerDay: 49,
     pricePerWeek: 279,
+    pricePerMonth: 999,
     images: [car4, car1, car2],
     seats: 4,
     transmission: "Automatic",
@@ -137,7 +142,7 @@ const CarDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [pickupDate, setPickupDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
-  const [rentalType, setRentalType] = useState<"daily" | "weekly">("daily");
+  const [rentalType, setRentalType] = useState<"daily" | "weekly" | "monthly">("daily");
 
   const car = carData[id || "executive-sedan"];
 
@@ -154,7 +159,19 @@ const CarDetail = () => {
     );
   }
 
-  const price = rentalType === "daily" ? car.pricePerDay : car.pricePerWeek;
+  const price = rentalType === "daily" ? car.pricePerDay : rentalType === "weekly" ? car.pricePerWeek : car.pricePerMonth;
+
+  const whatsappNumber = "1234567890"; // Replace with actual WhatsApp number
+  const rentalLabel = rentalType === "daily" ? "day" : rentalType === "weekly" ? "week" : "month";
+  const whatsappMessage = encodeURIComponent(
+    `Hi! I'm interested in renting the ${car.name}.\n\n` +
+    `Rental Type: ${rentalType.charAt(0).toUpperCase() + rentalType.slice(1)}\n` +
+    `Price: $${price}/${rentalLabel}\n` +
+    (pickupDate ? `Pick-up Date: ${pickupDate}\n` : "") +
+    (returnDate ? `Return Date: ${returnDate}\n` : "") +
+    `\nPlease let me know the availability. Thank you!`
+  );
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -288,11 +305,19 @@ const CarDetail = () => {
                     >
                       Weekly
                     </button>
+                    <button
+                      onClick={() => setRentalType("monthly")}
+                      className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                        rentalType === "monthly" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      Monthly
+                    </button>
                   </div>
 
                   <div className="flex items-end gap-2">
                     <span className="text-3xl font-bold text-foreground">${price}</span>
-                    <span className="text-muted-foreground">/ {rentalType === "daily" ? "day" : "week"}</span>
+                    <span className="text-muted-foreground">/ {rentalLabel}</span>
                   </div>
 
                   <div className="space-y-4">
@@ -322,11 +347,11 @@ const CarDetail = () => {
                     </div>
                   </div>
 
-                  <Link to="/contact">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <Button variant="hero" size="lg" className="w-full">
                       Rent This Car
                     </Button>
-                  </Link>
+                  </a>
 
                   <div className="space-y-2 pt-4 border-t border-border">
                     {[
