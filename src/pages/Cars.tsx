@@ -78,16 +78,16 @@ const Cars = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-32 pb-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="text-primary font-semibold">Our Fleet</span>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-2 mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mt-2 mb-4">
                 Choose Your
                 <span className="text-gradient"> Perfect Ride</span>
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-primary-foreground/80 text-lg">
                 From luxury sedans to eco-friendly electric vehicles, 
                 find the perfect car for your journey.
               </p>

@@ -19,16 +19,16 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-32 pb-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto">
               <span className="text-primary font-semibold">Get in Touch</span>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-2 mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mt-2 mb-4">
                 Contact
                 <span className="text-gradient"> Us</span>
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-primary-foreground/80 text-lg">
                 Have questions about our apartments or vehicles? We're here to help.
                 Reach out and we'll respond as soon as possible.
               </p>
