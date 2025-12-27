@@ -38,9 +38,6 @@
 
     --radius: 0.75rem;
 
-    /* Navbar scrim (improves readability without changing text colors) */
-    --nav-scrim: 0 0% 0%;
-
     /* Custom design tokens */
     --gradient-hero: linear-gradient(135deg, hsl(24, 95%, 53%) 0%, hsl(30, 100%, 60%) 50%, hsl(35, 100%, 65%) 100%);
     --gradient-warm: linear-gradient(180deg, hsl(40, 20%, 98%) 0%, hsl(35, 30%, 95%) 100%);
@@ -151,25 +148,6 @@
   
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
-  }
-
-  /* Adds a subtle dark scrim behind the transparent navbar so it stays readable */
-  .nav-scrim {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .nav-scrim::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      hsl(var(--nav-scrim) / 0.55) 0%,
-      hsl(var(--nav-scrim) / 0) 100%
-    );
   }
 }
 
