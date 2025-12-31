@@ -15,6 +15,9 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  
+  // Pages that need dark navbar text on initial load (no dark hero background)
+  const needsDarkText = ["/apartments", "/cars", "/contact"].includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +45,11 @@ export const Navbar = () => {
             </div>
             <span className={cn(
               "font-bold text-xl transition-colors duration-300",
-              scrolled ? "text-foreground" : "text-primary-foreground"
+              scrolled 
+                ? "text-foreground" 
+                : needsDarkText 
+                  ? "text-foreground" 
+                  : "text-primary-foreground"
             )}>
               Mighty Love Inn
             </span>
@@ -55,12 +62,14 @@ export const Navbar = () => {
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  "relative font-medium transition-all duration-300 hover:text-primary",
+                  "relative font-medium transition-colors duration-300 hover:text-primary",
                   location.pathname === link.href
                     ? "text-primary"
                     : scrolled
                     ? "text-foreground"
-                    : "text-primary-foreground"
+                    : needsDarkText
+                      ? "text-foreground"
+                      : "text-primary-foreground"
                 )}
               >
                 {link.label}
@@ -82,8 +91,12 @@ export const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
-              "md:hidden p-2 rounded-lg transition-colors",
-              scrolled ? "text-foreground" : "text-primary-foreground"
+              "md:hidden p-2 rounded-lg transition-colors duration-300",
+              scrolled 
+                ? "text-foreground" 
+                : needsDarkText 
+                  ? "text-foreground" 
+                  : "text-primary-foreground"
             )}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
