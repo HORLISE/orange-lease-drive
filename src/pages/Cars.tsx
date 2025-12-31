@@ -78,7 +78,7 @@ const Cars = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-primary text-primary-foreground">
+      <section className="pt-32 pb-16 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-12">
