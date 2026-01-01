@@ -1,13 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
-  // Static WhatsApp deep link - NO API, just a plain URL
-  const whatsappUrl = "https://wa.me/250780399998?text=Hello%20Mighty%20Love%20Inn%2C%20I%20am%20interested%20in%20your%20apartments%20or%20car%20rentals.";
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -47,37 +43,38 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-6">
-                  {[
-                    {
-                      icon: Phone,
-                      title: "WhatsApp",
-                      content: "+250 780 399 998",
-                      subtitle: "Instant replies • Available 24/7",
-                    },
-                    {
-                      icon: MapPin,
-                      title: "Office",
-                      content: "123 Business Avenue",
-                      subtitle: "Central City, CC 10001",
-                    },
-                    {
-                      icon: Clock,
-                      title: "Working Hours",
-                      content: "24/7 Customer Support",
-                      subtitle: "Always here for you",
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="flex gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">{item.title}</h3>
-                        <p className="text-foreground">{item.content}</p>
-                        <p className="text-sm text-muted-foreground">{item.subtitle}</p>
-                      </div>
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-primary" />
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="font-semibold text-foreground">WhatsApp</h3>
+                      <p className="text-foreground">+250 780 399 998</p>
+                      <p className="text-sm text-muted-foreground">Instant replies • Available 24/7</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Office</h3>
+                      <p className="text-foreground">123 Business Avenue</p>
+                      <p className="text-sm text-muted-foreground">Central City, CC 10001</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Working Hours</h3>
+                      <p className="text-foreground">24/7 Customer Support</p>
+                      <p className="text-sm text-muted-foreground">Always here for you</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -86,7 +83,7 @@ const Contact = () => {
             <AnimatedSection delay={200}>
               <div className="bg-card rounded-3xl shadow-card p-8 md:p-12 text-center">
                 <div className="mb-6">
-                  <div className="w-20 h-20 rounded-full bg-[#25D366]/10 flex items-center justify-center mx-auto mb-6 animate-pulse-soft">
+                  <div className="w-20 h-20 rounded-full bg-[#25D366]/10 flex items-center justify-center mx-auto mb-6">
                     <MessageCircle className="w-10 h-10 text-[#25D366]" />
                   </div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">Chat with us on WhatsApp</h2>
@@ -96,25 +93,19 @@ const Contact = () => {
                   </p>
                 </div>
 
-                {/* Static anchor link - NO API */}
+                {/* Plain static anchor link */}
                 <a 
-                  href={whatsappUrl}
+                  href="https://wa.me/250780399998?text=Hello%20Mighty%20Love%20Inn%2C%20I%20am%20interested%20in%20your%20apartments%20or%20car%20rentals."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="inline-flex items-center justify-center gap-2 w-full px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary rounded-xl shadow-lg hover:bg-primary/90 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
-                  <Button 
-                    variant="hero" 
-                    size="xl" 
-                    className="w-full whatsapp-cta-pulse group"
-                  >
-                    <MessageCircle className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                    Start WhatsApp Chat
-                  </Button>
+                  <MessageCircle className="w-5 h-5" />
+                  Start WhatsApp Chat
                 </a>
 
                 <p className="text-xs text-muted-foreground mt-4">
-                  Opens WhatsApp directly in a new tab
+                  Opens WhatsApp in a new tab
                 </p>
               </div>
             </AnimatedSection>
@@ -122,12 +113,12 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Floating WhatsApp Button - Static link */}
+      {/* Floating WhatsApp Button - Plain anchor */}
       <a
-        href={whatsappUrl}
+        href="https://wa.me/250780399998?text=Hello%20Mighty%20Love%20Inn%2C%20I%20am%20interested%20in%20your%20apartments%20or%20car%20rentals."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 floating-whatsapp"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle className="w-7 h-7 text-white" />
