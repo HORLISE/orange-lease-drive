@@ -5,9 +5,8 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
-  const whatsappNumber = "250780399998";
-  const whatsappMessage = encodeURIComponent("Hello Mighty Love Inn, I'm interested in your apartments/car rentals.");
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  // Static WhatsApp deep link - NO API, just a plain URL
+  const whatsappUrl = "https://wa.me/250780399998?text=Hello%20Mighty%20Love%20Inn%2C%20I%20am%20interested%20in%20your%20apartments%20or%20car%20rentals.";
 
   return (
     <div className="min-h-screen bg-background">
@@ -25,7 +24,7 @@ const Contact = () => {
               </h1>
               <p className="text-muted-foreground text-lg">
                 Have questions about our apartments or vehicles? We're here to help.
-                Reach out via WhatsApp for fast replies.
+                Reach out via WhatsApp for instant support.
               </p>
             </div>
           </AnimatedSection>
@@ -53,7 +52,7 @@ const Contact = () => {
                       icon: Phone,
                       title: "WhatsApp",
                       content: "+250 780 399 998",
-                      subtitle: "Fast replies • Available 24/7",
+                      subtitle: "Instant replies • Available 24/7",
                     },
                     {
                       icon: MapPin,
@@ -88,17 +87,18 @@ const Contact = () => {
               <div className="bg-card rounded-3xl shadow-card p-8 md:p-12 text-center">
                 <div className="mb-6">
                   <div className="w-20 h-20 rounded-full bg-[#25D366]/10 flex items-center justify-center mx-auto mb-6 animate-pulse-soft">
-                    <MessageCircle className="w-10 h-10 text-[#25D366] whatsapp-icon-bounce" />
+                    <MessageCircle className="w-10 h-10 text-[#25D366]" />
                   </div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">Chat with us on WhatsApp</h2>
                   <p className="text-muted-foreground mb-2">+250 780 399 998</p>
                   <p className="text-sm text-muted-foreground">
-                    Fast replies • Available for apartments & car rentals
+                    Instant support for apartments & car rentals
                   </p>
                 </div>
 
+                {/* Static anchor link - NO API */}
                 <a 
-                  href={whatsappLink}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"
@@ -108,13 +108,13 @@ const Contact = () => {
                     size="xl" 
                     className="w-full whatsapp-cta-pulse group"
                   >
-                    <MessageCircle className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                    <MessageCircle className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                     Start WhatsApp Chat
                   </Button>
                 </a>
 
                 <p className="text-xs text-muted-foreground mt-4">
-                  Opens WhatsApp with a pre-filled message
+                  Opens WhatsApp directly in a new tab
                 </p>
               </div>
             </AnimatedSection>
@@ -122,9 +122,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating WhatsApp Button - Static link */}
       <a
-        href={whatsappLink}
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 floating-whatsapp"
