@@ -38,7 +38,6 @@ export const Footer = () => {
                 { label: "Browse Apartments", href: "/apartments", icon: Building2 },
                 { label: "Rent a Car", href: "/cars", icon: Car },
                 { label: "About Us", href: "/about", icon: null },
-                { label: "Contact", href: "/contact", icon: null },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -50,6 +49,17 @@ export const Footer = () => {
                   </Link>
                 </li>
               ))}
+
+              <li>
+                <a
+                  href="https://wa.me/250780399998"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary transition-colors duration-300"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -322,11 +322,16 @@ const CarDetail = () => {
                     </div>
                   </div>
 
-                  <Link to="/contact">
+                  <a
+                    href="https://wa.me/250780399998"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
                     <Button variant="hero" size="lg" className="w-full">
                       Rent This Car
                     </Button>
-                  </Link>
+                  </a>
 
                   <div className="space-y-2 pt-4 border-t border-border">
                     {[

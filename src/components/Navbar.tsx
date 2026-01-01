@@ -8,7 +8,6 @@ const navLinks = [
   { href: "/", label: "Home", icon: Home },
   { href: "/apartments", label: "Apartments", icon: Building2 },
   { href: "/cars", label: "Cars", icon: Car },
-  { href: "/contact", label: "Contact", icon: Phone },
 ];
 
 export const Navbar = () => {
@@ -78,6 +77,18 @@ export const Navbar = () => {
                 )}
               </Link>
             ))}
+
+            <a
+              href="https://wa.me/250780399998"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "relative font-medium transition-colors duration-300 hover:text-primary",
+                scrolled ? "text-foreground" : needsDarkText ? "text-foreground" : "text-primary-foreground"
+              )}
+            >
+              Contact
+            </a>
           </div>
 
           {/* CTA Button */}
@@ -127,6 +138,16 @@ export const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+
+            <a
+              href="https://wa.me/250780399998"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 text-foreground hover:bg-secondary"
+            >
+              <Phone size={20} />
+              Contact
+            </a>
             <Button variant="hero" className="w-full mt-4">
               Book Now
             </Button>
