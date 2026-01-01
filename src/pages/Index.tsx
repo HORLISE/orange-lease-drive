@@ -301,11 +301,15 @@ const Index = () => {
                     Start Booking Now
                   </Button>
                 </Link>
-                <Link to="/contact">
+                <a
+                  href="https://wa.me/250780399998"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button variant="heroOutline" size="lg">
                     Contact Us
                   </Button>
-                </Link>
+                </a>
               </div>
             </div>
           </AnimatedSection>
