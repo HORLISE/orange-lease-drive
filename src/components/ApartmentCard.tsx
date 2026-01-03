@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Bed, Bath, Square } from "lucide-react";
+import { MapPin, Bed, Bath } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ApartmentCardProps {
@@ -10,7 +10,6 @@ interface ApartmentCardProps {
   image: string;
   bedrooms: number;
   bathrooms: number;
-  sqft: number;
   featured?: boolean;
 }
 
@@ -22,7 +21,6 @@ export const ApartmentCard = ({
   image,
   bedrooms,
   bathrooms,
-  sqft,
   featured = false,
 }: ApartmentCardProps) => {
   // Calculate monthly price (price * 30 days)
@@ -74,10 +72,6 @@ export const ApartmentCard = ({
           <div className="flex items-center gap-1.5 text-muted-foreground">
             <Bath size={16} />
             <span className="text-sm">{bathrooms} bath</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Square size={16} />
-            <span className="text-sm">{sqft} sqft</span>
           </div>
         </div>
       </div>
