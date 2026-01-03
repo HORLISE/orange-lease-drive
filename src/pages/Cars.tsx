@@ -6,65 +6,44 @@ import { CarCard } from "@/components/CarCard";
 import { Search, SlidersHorizontal, CarFront } from "lucide-react";
 import { useState } from "react";
 
-import car1 from "@/assets/car-1.jpg";
-import car2 from "@/assets/car-2.jpg";
-import car3 from "@/assets/car-3.jpg";
-import car4 from "@/assets/car-4.jpg";
+import kiaSorentoBlack from "@/assets/kia-sorento-black.jpg";
+import kiaSorentoGrey from "@/assets/kia-sorento-grey.jpg";
+import kiaSorentoSilver from "@/assets/kia-sorento-silver.jpg";
 
 const cars = [
   {
-    id: "executive-sedan",
-    name: "Executive Sedan",
-    type: "Luxury",
-    price: 89,
-    image: car1,
-    seats: 5,
-    transmission: "Auto",
-    fuelType: "Petrol",
-  },
-  {
-    id: "premium-suv",
-    name: "Premium SUV",
+    id: "kia-sorento-black",
+    name: "Kia Sorento 2012 Black",
     type: "SUV",
-    price: 129,
-    image: car2,
+    price: 75,
+    image: kiaSorentoBlack,
     seats: 7,
     transmission: "Auto",
-    fuelType: "Hybrid",
-  },
-  {
-    id: "sport-coupe",
-    name: "Sport Coupe",
-    type: "Sports",
-    price: 199,
-    image: car3,
-    seats: 2,
-    transmission: "Manual",
     fuelType: "Petrol",
   },
   {
-    id: "electric-cruiser",
-    name: "Electric Cruiser",
-    type: "Electric",
-    price: 99,
-    image: car4,
-    seats: 5,
+    id: "kia-sorento-grey",
+    name: "Kia Sorento 2012 Grey",
+    type: "SUV",
+    price: 75,
+    image: kiaSorentoGrey,
+    seats: 7,
     transmission: "Auto",
-    fuelType: "Electric",
+    fuelType: "Petrol",
   },
   {
-    id: "compact-city",
-    name: "Compact City Car",
-    type: "Economy",
-    price: 49,
-    image: car4,
-    seats: 4,
+    id: "kia-sorento-silver",
+    name: "Kia Sorento 2012 Silver",
+    type: "SUV",
+    price: 75,
+    image: kiaSorentoSilver,
+    seats: 7,
     transmission: "Auto",
     fuelType: "Petrol",
   },
 ];
 
-const carTypes = ["All Types", "Luxury", "SUV", "Sports", "Electric", "Economy"];
+const carTypes = ["All Types", "SUV"];
 
 const Cars = () => {
   const [selectedType, setSelectedType] = useState("All Types");
