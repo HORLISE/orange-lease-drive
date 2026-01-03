@@ -78,17 +78,24 @@ export const Navbar = () => {
               </Link>
             ))}
 
-            <a
-              href="https://wa.me/250780399998"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contact"
               className={cn(
                 "relative font-medium transition-colors duration-300 hover:text-primary",
-                scrolled ? "text-foreground" : needsDarkText ? "text-foreground" : "text-primary-foreground"
+                location.pathname === "/contact"
+                  ? "text-primary"
+                  : scrolled
+                  ? "text-foreground"
+                  : needsDarkText
+                    ? "text-foreground"
+                    : "text-primary-foreground"
               )}
             >
               Contact
-            </a>
+              {location.pathname === "/contact" && (
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+              )}
+            </Link>
           </div>
 
           {/* CTA Button */}
@@ -139,15 +146,19 @@ export const Navbar = () => {
               </Link>
             ))}
 
-            <a
-              href="https://wa.me/250780399998"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 text-foreground hover:bg-secondary"
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "flex items-center gap-3 p-3 rounded-xl transition-all duration-300",
+                location.pathname === "/contact"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary"
+              )}
             >
               <Phone size={20} />
               Contact
-            </a>
+            </Link>
             <Button variant="hero" className="w-full mt-4">
               Book Now
             </Button>
