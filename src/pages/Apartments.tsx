@@ -18,7 +18,7 @@ const apartments = [
     image: apartmentProfile1,
     bedrooms: 2,
     bathrooms: 2,
-    amenities: ["Free WiFi", "Balcony", "Terrace"],
+    amenities: ["Free WiFi", "Balcony"],
   },
   {
     id: "chateau-mignon",
@@ -28,7 +28,7 @@ const apartments = [
     image: apartmentProfile2,
     bedrooms: 3,
     bathrooms: 2,
-    amenities: ["Free WiFi", "Balcony", "Terrace"],
+    amenities: ["Free WiFi", "Balcony"],
   },
 ];
 
