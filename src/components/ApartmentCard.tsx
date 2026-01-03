@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Bed, Bath } from "lucide-react";
+import { MapPin, Bed, Bath, Wifi } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ApartmentCardProps {
@@ -10,6 +10,7 @@ interface ApartmentCardProps {
   image: string;
   bedrooms: number;
   bathrooms: number;
+  amenities?: string[];
   featured?: boolean;
 }
 
@@ -21,6 +22,7 @@ export const ApartmentCard = ({
   image,
   bedrooms,
   bathrooms,
+  amenities = [],
   featured = false,
 }: ApartmentCardProps) => {
   // Calculate monthly price (price * 30 days)
@@ -62,6 +64,21 @@ export const ApartmentCard = ({
             <span className="text-sm">{location}</span>
           </div>
         </div>
+
+        {/* Amenities */}
+        {amenities.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {amenities.map((amenity) => (
+              <span
+                key={amenity}
+                className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-secondary text-xs text-muted-foreground"
+              >
+                {amenity === "Free WiFi" && <Wifi size={12} />}
+                {amenity}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Features */}
         <div className="flex items-center gap-4 pt-3 border-t border-border">
