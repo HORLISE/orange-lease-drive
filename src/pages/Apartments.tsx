@@ -18,15 +18,17 @@ const apartments = [
     image: apartmentProfile1,
     bedrooms: 2,
     bathrooms: 2,
+    amenities: ["Free WiFi", "Balcony", "Terrace"],
   },
   {
-    id: "oceanview-heights",
-    name: "Oceanview Heights",
+    id: "chateau-mignon",
+    name: "Château Mignon",
     location: "Coastal District",
     price: 249,
     image: apartmentProfile2,
     bedrooms: 3,
     bathrooms: 2,
+    amenities: ["Free WiFi", "Balcony", "Terrace"],
   },
 ];
 
