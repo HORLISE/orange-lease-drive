@@ -6,9 +6,8 @@ import { ApartmentCard } from "@/components/ApartmentCard";
 import { Search, SlidersHorizontal, MapPin } from "lucide-react";
 import { useState } from "react";
 
-import apartment1 from "@/assets/apartment-1.jpg";
-import apartment2 from "@/assets/apartment-2.jpg";
-import apartment3 from "@/assets/apartment-3.jpg";
+import apartmentProfile1 from "@/assets/apartment-profile-1.jpg";
+import apartmentProfile2 from "@/assets/apartment-profile-2.jpg";
 
 const apartments = [
   {
@@ -16,60 +15,18 @@ const apartments = [
     name: "Downtown Plaza Suite",
     location: "Downtown Plaza",
     price: 189,
-    image: apartment1,
+    image: apartmentProfile1,
     bedrooms: 2,
     bathrooms: 2,
-    sqft: 1200,
   },
   {
     id: "oceanview-heights",
     name: "Oceanview Heights",
     location: "Coastal District",
     price: 249,
-    image: apartment2,
+    image: apartmentProfile2,
     bedrooms: 3,
     bathrooms: 2,
-    sqft: 1500,
-  },
-  {
-    id: "green-valley",
-    name: "Green Valley Residence",
-    location: "Green Valley",
-    price: 159,
-    image: apartment3,
-    bedrooms: 1,
-    bathrooms: 1,
-    sqft: 850,
-  },
-  {
-    id: "downtown-studio",
-    name: "Downtown Studio Loft",
-    location: "Downtown Plaza",
-    price: 129,
-    image: apartment1,
-    bedrooms: 1,
-    bathrooms: 1,
-    sqft: 600,
-  },
-  {
-    id: "oceanview-penthouse",
-    name: "Oceanview Penthouse",
-    location: "Coastal District",
-    price: 399,
-    image: apartment2,
-    bedrooms: 4,
-    bathrooms: 3,
-    sqft: 2200,
-  },
-  {
-    id: "green-valley-family",
-    name: "Green Valley Family Home",
-    location: "Green Valley",
-    price: 219,
-    image: apartment3,
-    bedrooms: 3,
-    bathrooms: 2,
-    sqft: 1800,
   },
 ];
 
