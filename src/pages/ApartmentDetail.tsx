@@ -4,176 +4,96 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { 
-  MapPin, Bed, Bath, Square, Wifi, CarFront, Tv, 
-  Wind, Coffee, Utensils, ArrowLeft, Calendar, Check, Play
+  MapPin, Bed, Bath, Wifi, CarFront, Tv, 
+  Utensils, ArrowLeft, Calendar, Check, Play
 } from "lucide-react";
 import { useState } from "react";
 
+import apartmentProfile1 from "@/assets/apartment-profile-1.jpg";
+import apartmentProfile2 from "@/assets/apartment-profile-2.jpg";
 import apartment1 from "@/assets/apartment-1.jpg";
 import apartment2 from "@/assets/apartment-2.jpg";
 import apartment3 from "@/assets/apartment-3.jpg";
 
 const apartmentData: Record<string, any> = {
-  "downtown-plaza": {
-    name: "Downtown Plaza Suite",
-    location: "Downtown Plaza, Central City",
-    price: 189,
-    images: [apartment1, apartment2, apartment3],
+  "chateau-mignon": {
+    name: "Château Mignon",
+    location: "KK 5 Ave, Kigali",
+    pricePerDay: 50,
+    pricePerWeek: 300,
+    pricePerMonth: 1000,
+    images: [apartmentProfile1, apartment1, apartment2],
     videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 2,
+    bedrooms: 3,
     bathrooms: 2,
-    sqft: 1200,
-    description: "Experience luxury urban living in our stunning Downtown Plaza Suite. This spacious apartment offers panoramic city views, modern amenities, and is steps away from the best restaurants, shops, and entertainment venues the city has to offer.",
+    description: "Experience luxury living in our stunning Château Mignon. This spacious apartment offers panoramic views, modern amenities, and is perfectly located in KK 5 Ave, Kigali.",
     amenities: [
       { icon: Wifi, label: "High-Speed WiFi" },
       { icon: CarFront, label: "Free Parking" },
       { icon: Tv, label: "Smart TV" },
-      { icon: Wind, label: "Air Conditioning" },
-      { icon: Coffee, label: "Coffee Machine" },
       { icon: Utensils, label: "Fully Equipped Kitchen" },
     ],
     terms: [
-      "Minimum stay: 2 nights",
-      "Check-in: 3:00 PM - 10:00 PM",
-      "Check-out: 11:00 AM",
       "No smoking",
       "No parties or events",
       "Pets allowed (with prior approval)",
-    ],
-  },
-  "oceanview-heights": {
-    name: "Oceanview Heights",
-    location: "Coastal District, Seaside",
-    price: 249,
-    images: [apartment2, apartment1, apartment3],
-    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 3,
-    bathrooms: 2,
-    sqft: 1500,
-    description: "Wake up to breathtaking ocean views in our premium Oceanview Heights apartment. Featuring a spacious balcony, modern design, and direct beach access, this is the ultimate coastal getaway for those seeking relaxation and luxury.",
-    amenities: [
-      { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: CarFront, label: "Free Parking" },
-      { icon: Tv, label: "Smart TV" },
-      { icon: Wind, label: "Air Conditioning" },
-      { icon: Coffee, label: "Coffee Machine" },
-      { icon: Utensils, label: "Fully Equipped Kitchen" },
-    ],
-    terms: [
-      "Minimum stay: 3 nights",
-      "Check-in: 3:00 PM - 9:00 PM",
-      "Check-out: 10:00 AM",
-      "No smoking",
-      "No parties or events",
-      "No pets",
-    ],
-  },
-  "green-valley": {
-    name: "Green Valley Residence",
-    location: "Green Valley, Suburban Heights",
-    price: 159,
-    images: [apartment3, apartment1, apartment2],
-    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 1,
-    bathrooms: 1,
-    sqft: 850,
-    description: "Escape to tranquility in our cozy Green Valley Residence. Surrounded by lush greenery and natural beauty, this eco-friendly apartment offers a peaceful retreat while still being conveniently close to city amenities.",
-    amenities: [
-      { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: CarFront, label: "Free Parking" },
-      { icon: Tv, label: "Smart TV" },
-      { icon: Wind, label: "Air Conditioning" },
-      { icon: Coffee, label: "Coffee Machine" },
-      { icon: Utensils, label: "Fully Equipped Kitchen" },
-    ],
-    terms: [
-      "Minimum stay: 1 night",
-      "Check-in: 2:00 PM - 11:00 PM",
-      "Check-out: 12:00 PM",
-      "No smoking",
       "Quiet hours after 10 PM",
-      "Pets welcome",
+      "Valid ID required at check-in",
     ],
   },
-  "downtown-studio": {
-    name: "Downtown Studio Loft",
-    location: "Downtown Plaza, Central City",
-    price: 129,
-    images: [apartment1, apartment2, apartment3],
+  "la-casa": {
+    name: "La Casa",
+    location: "Downtown Plaza",
+    pricePerDay: 40,
+    pricePerWeek: 250,
+    pricePerMonth: 800,
+    images: [apartmentProfile2, apartment2, apartment3],
     videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 1,
-    bathrooms: 1,
-    sqft: 600,
-    description: "A cozy and modern studio loft in the heart of downtown. Perfect for solo travelers or couples looking for a stylish urban retreat with all the essentials.",
+    bedrooms: 2,
+    bathrooms: 2,
+    description: "A cozy and modern apartment in the heart of Downtown Plaza. Perfect for couples or small families looking for a stylish urban retreat with all the essentials.",
     amenities: [
       { icon: Wifi, label: "High-Speed WiFi" },
       { icon: CarFront, label: "Free Parking" },
       { icon: Tv, label: "Smart TV" },
-      { icon: Wind, label: "Air Conditioning" },
-      { icon: Coffee, label: "Coffee Machine" },
-      { icon: Utensils, label: "Kitchenette" },
+      { icon: Utensils, label: "Fully Equipped Kitchen" },
     ],
     terms: [
-      "Minimum stay: 1 night",
-      "Check-in: 3:00 PM - 11:00 PM",
-      "Check-out: 11:00 AM",
       "No smoking",
       "No parties or events",
-    ],
-  },
-  "oceanview-penthouse": {
-    name: "Oceanview Penthouse",
-    location: "Coastal District, Seaside",
-    price: 399,
-    images: [apartment2, apartment1, apartment3],
-    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 4,
-    bathrooms: 3,
-    sqft: 2200,
-    description: "The ultimate luxury penthouse with panoramic ocean views. This stunning property features multiple bedrooms, a private terrace, and premium finishes throughout.",
-    amenities: [
-      { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: CarFront, label: "Private Garage" },
-      { icon: Tv, label: "Smart TV in Every Room" },
-      { icon: Wind, label: "Climate Control" },
-      { icon: Coffee, label: "Espresso Machine" },
-      { icon: Utensils, label: "Chef's Kitchen" },
-    ],
-    terms: [
-      "Minimum stay: 3 nights",
-      "Check-in: 3:00 PM - 9:00 PM",
-      "Check-out: 11:00 AM",
-      "No smoking",
-      "No parties without approval",
-    ],
-  },
-  "green-valley-family": {
-    name: "Green Valley Family Home",
-    location: "Green Valley, Suburban Heights",
-    price: 219,
-    images: [apartment3, apartment1, apartment2],
-    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 3,
-    bathrooms: 2,
-    sqft: 1800,
-    description: "A spacious family home surrounded by nature. Perfect for families looking for a comfortable stay with plenty of space for everyone.",
-    amenities: [
-      { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: CarFront, label: "2-Car Garage" },
-      { icon: Tv, label: "Smart TV" },
-      { icon: Wind, label: "Central AC" },
-      { icon: Coffee, label: "Coffee Station" },
-      { icon: Utensils, label: "Full Kitchen" },
-    ],
-    terms: [
-      "Minimum stay: 2 nights",
-      "Check-in: 3:00 PM - 10:00 PM",
-      "Check-out: 11:00 AM",
-      "No smoking",
       "Pets welcome",
+      "Quiet hours after 10 PM",
+      "Valid ID required at check-in",
+    ],
+  },
+  "downtown-plaza": {
+    name: "Downtown Plaza Suite",
+    location: "Downtown Plaza",
+    pricePerDay: 40,
+    pricePerWeek: 250,
+    pricePerMonth: 800,
+    images: [apartmentProfile2, apartment1, apartment3],
+    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
+    bedrooms: 2,
+    bathrooms: 2,
+    description: "Experience luxury urban living in our stunning Downtown Plaza Suite. This spacious apartment offers city views, modern amenities, and is steps away from the best restaurants and shops.",
+    amenities: [
+      { icon: Wifi, label: "High-Speed WiFi" },
+      { icon: CarFront, label: "Free Parking" },
+      { icon: Tv, label: "Smart TV" },
+      { icon: Utensils, label: "Fully Equipped Kitchen" },
+    ],
+    terms: [
+      "No smoking",
+      "No parties or events",
+      "Pets allowed (with prior approval)",
+      "Quiet hours after 10 PM",
+      "Valid ID required at check-in",
     ],
   },
 };
+
+type PricingPeriod = "day" | "week" | "month";
 
 const ApartmentDetail = () => {
   const { id } = useParams();
@@ -182,8 +102,9 @@ const ApartmentDetail = () => {
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(2);
   const [showVideo, setShowVideo] = useState(false);
+  const [pricingPeriod, setPricingPeriod] = useState<PricingPeriod>("day");
 
-  const apartment = apartmentData[id || "downtown-plaza"];
+  const apartment = apartmentData[id || "chateau-mignon"];
 
   if (!apartment) {
     return (
@@ -197,6 +118,32 @@ const ApartmentDetail = () => {
       </div>
     );
   }
+
+  const getPriceForPeriod = () => {
+    switch (pricingPeriod) {
+      case "day":
+        return apartment.pricePerDay;
+      case "week":
+        return apartment.pricePerWeek;
+      case "month":
+        return apartment.pricePerMonth;
+      default:
+        return apartment.pricePerDay;
+    }
+  };
+
+  const getPeriodLabel = () => {
+    switch (pricingPeriod) {
+      case "day":
+        return "day";
+      case "week":
+        return "week";
+      case "month":
+        return "month";
+      default:
+        return "day";
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -295,10 +242,6 @@ const ApartmentDetail = () => {
                       <Bath size={20} className="text-primary" />
                       <span>{apartment.bathrooms} Bathrooms</span>
                     </div>
-                    <div className="flex items-center gap-2 hover:text-primary transition-colors">
-                      <Square size={20} className="text-primary" />
-                      <span>{apartment.sqft} sqft</span>
-                    </div>
                   </div>
 
                   {/* Description */}
@@ -348,9 +291,26 @@ const ApartmentDetail = () => {
             <div className="lg:col-span-1">
               <AnimatedSection delay={300}>
                 <div className="sticky top-28 bg-card rounded-3xl shadow-card p-6 space-y-6">
+                  {/* Pricing Period Tabs */}
+                  <div className="flex rounded-xl bg-secondary p-1">
+                    {(["day", "week", "month"] as PricingPeriod[]).map((period) => (
+                      <button
+                        key={period}
+                        onClick={() => setPricingPeriod(period)}
+                        className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+                          pricingPeriod === period
+                            ? "bg-primary text-primary-foreground"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {period.charAt(0).toUpperCase() + period.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+
                   <div className="flex items-end gap-2">
-                    <span className="text-3xl font-bold text-foreground">${apartment.price}</span>
-                    <span className="text-muted-foreground">/ day</span>
+                    <span className="text-3xl font-bold text-foreground">${getPriceForPeriod()}</span>
+                    <span className="text-muted-foreground">/ {getPeriodLabel()}</span>
                   </div>
 
                   <div className="space-y-4">
@@ -396,7 +356,7 @@ const ApartmentDetail = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/250780399998"
+                    href="https://wa.me/250788595534"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
@@ -412,8 +372,8 @@ const ApartmentDetail = () => {
 
                   <div className="space-y-3 pt-4 border-t border-border">
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">${apartment.price} x 3 days</span>
-                      <span className="text-foreground">${apartment.price * 3}</span>
+                      <span className="text-muted-foreground">${getPriceForPeriod()} x 1 {getPeriodLabel()}</span>
+                      <span className="text-foreground">${getPriceForPeriod()}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Cleaning fee</span>
@@ -425,7 +385,7 @@ const ApartmentDetail = () => {
                     </div>
                     <div className="flex justify-between font-bold pt-3 border-t border-border">
                       <span>Total</span>
-                      <span>${apartment.price * 3 + 50 + 35}</span>
+                      <span>${getPriceForPeriod() + 50 + 35}</span>
                     </div>
                   </div>
                 </div>

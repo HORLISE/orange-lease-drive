@@ -11,28 +11,28 @@ import apartmentProfile2 from "@/assets/apartment-profile-2.jpg";
 
 const apartments = [
   {
-    id: "downtown-plaza",
-    name: "Downtown Plaza Suite",
-    location: "Downtown Plaza",
-    price: 189,
+    id: "chateau-mignon",
+    name: "Château Mignon",
+    location: "KK 5 Ave, Kigali",
+    price: 249,
     image: apartmentProfile1,
-    bedrooms: 2,
+    bedrooms: 3,
     bathrooms: 2,
     amenities: ["Free WiFi", "Balcony", "Terrace"],
   },
   {
-    id: "chateau-mignon",
-    name: "Château Mignon",
-    location: "Coastal District",
-    price: 249,
+    id: "la-casa",
+    name: "La Casa",
+    location: "Downtown Plaza",
+    price: 189,
     image: apartmentProfile2,
-    bedrooms: 3,
+    bedrooms: 2,
     bathrooms: 2,
     amenities: ["Free WiFi", "Balcony", "Terrace"],
   },
 ];
 
-const locations = ["All Locations", "Downtown Plaza", "Coastal District", "Green Valley"];
+const locations = ["All Locations", "KK 5 Ave, Kigali", "Downtown Plaza"];
 
 const Apartments = () => {
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
@@ -59,7 +59,7 @@ const Apartments = () => {
                 <span className="text-gradient"> Apartment</span>
               </h1>
               <p className="text-muted-foreground text-lg">
-                Explore our collection of premium apartments across three prime locations. 
+                Explore our collection of premium apartments. 
                 Each property offers unique amenities and stunning views.
               </p>
             </div>
@@ -118,10 +118,12 @@ const Apartments = () => {
             </select>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl">
             {filteredApartments.map((apartment, index) => (
               <AnimatedSection key={apartment.id} delay={index * 100}>
-                <ApartmentCard {...apartment} />
+                <div className="w-full">
+                  <ApartmentCard {...apartment} />
+                </div>
               </AnimatedSection>
             ))}
           </div>

@@ -7,90 +7,56 @@ import { CarCard } from "@/components/CarCard";
 import { Link } from "react-router-dom";
 import { ArrowRight, Building2, CarFront, Shield, Clock, Sparkles } from "lucide-react";
 
-import heroImage from "@/assets/hero-apartment.jpg";
-import apartment1 from "@/assets/apartment-1.jpg";
-import apartment2 from "@/assets/apartment-2.jpg";
-import apartment3 from "@/assets/apartment-3.jpg";
-import car1 from "@/assets/car-1.jpg";
-import car2 from "@/assets/car-2.jpg";
-import car3 from "@/assets/car-3.jpg";
-import car4 from "@/assets/car-4.jpg";
+import heroImage from "@/assets/hero-main.jpg";
+import apartmentProfile1 from "@/assets/apartment-profile-1.jpg";
+import apartmentProfile2 from "@/assets/apartment-profile-2.jpg";
+import kiaSorentoBlack from "@/assets/kia-sorento-black.jpg";
+import kiaSorentoGrey from "@/assets/kia-sorento-grey.jpg";
 
 const apartments = [
   {
-    id: "downtown-plaza",
-    name: "Downtown Plaza Suite",
-    location: "Downtown Plaza",
-    price: 189,
-    image: apartment1,
-    bedrooms: 2,
-    bathrooms: 2,
-    sqft: 1200,
-    featured: true,
-  },
-  {
-    id: "oceanview-heights",
-    name: "Oceanview Heights",
-    location: "Coastal District",
+    id: "chateau-mignon",
+    name: "Château Mignon",
+    location: "KK 5 Ave, Kigali",
     price: 249,
-    image: apartment2,
+    image: apartmentProfile1,
     bedrooms: 3,
     bathrooms: 2,
-    sqft: 1500,
+    amenities: ["Free WiFi", "Balcony", "Terrace"],
   },
   {
-    id: "green-valley",
-    name: "Green Valley Residence",
-    location: "Green Valley",
-    price: 159,
-    image: apartment3,
-    bedrooms: 1,
-    bathrooms: 1,
-    sqft: 850,
+    id: "la-casa",
+    name: "La Casa",
+    location: "Downtown Plaza",
+    price: 189,
+    image: apartmentProfile2,
+    bedrooms: 2,
+    bathrooms: 2,
+    amenities: ["Free WiFi", "Balcony", "Terrace"],
   },
 ];
 
 const cars = [
   {
-    id: "executive-sedan",
-    name: "Executive Sedan",
-    type: "Luxury",
+    id: "kia-sorento-black",
+    name: "Kia Sorento 2012",
+    type: "SUV",
     price: 89,
-    image: car1,
-    seats: 5,
-    transmission: "Auto",
-    fuelType: "Petrol",
+    image: kiaSorentoBlack,
+    seats: 7,
+    transmission: "Automatic",
+    fuelType: "Diesel",
     featured: true,
   },
   {
-    id: "premium-suv",
-    name: "Premium SUV",
+    id: "kia-sorento-grey",
+    name: "Kia Sorento 2012",
     type: "SUV",
-    price: 129,
-    image: car2,
+    price: 89,
+    image: kiaSorentoGrey,
     seats: 7,
-    transmission: "Auto",
-    fuelType: "Hybrid",
-  },
-  {
-    id: "sport-coupe",
-    name: "Sport Coupe",
-    type: "Sports",
-    price: 199,
-    image: car3,
-    seats: 2,
-    transmission: "Manual",
-    fuelType: "Petrol",
-  },
-  {
-    id: "electric-model",
-    name: "Electric Cruiser",
-    type: "Electric",
-    price: 99,
-    image: car4,
-    seats: 5,
-    transmission: "Auto",
-    fuelType: "Electric",
+    transmission: "Automatic",
+    fuelType: "Diesel",
   },
 ];
 
@@ -169,9 +135,9 @@ const Index = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-primary-foreground/20 animate-fade-up stagger-4">
               {[
-                { value: "3", label: "Premium Buildings" },
-                { value: "5", label: "Luxury Vehicles" },
-                { value: "500+", label: "Happy Guests" },
+                { value: "2", label: "Premium Buildings" },
+                { value: "2", label: "Luxury Vehicles" },
+                { value: "100+", label: "Happy Guests" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
@@ -223,7 +189,7 @@ const Index = () => {
                   Premium Apartments
                 </h2>
                 <p className="text-muted-foreground mt-3 max-w-lg">
-                  Discover our handpicked selection of luxury apartments across three prime locations.
+                  Discover our handpicked selection of luxury apartments.
                 </p>
               </div>
               <Link to="/apartments">
@@ -235,7 +201,7 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
             {apartments.map((apartment, index) => (
               <AnimatedSection key={apartment.id} delay={index * 100}>
                 <ApartmentCard {...apartment} />
@@ -256,7 +222,7 @@ const Index = () => {
                   Luxury Vehicles
                 </h2>
                 <p className="text-muted-foreground mt-3 max-w-lg">
-                  From executive sedans to sporty coupes, find the perfect ride for any occasion.
+                  Reliable Kia Sorento 2012 SUVs for your comfortable travels.
                 </p>
               </div>
               <Link to="/cars">
@@ -268,7 +234,7 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
             {cars.map((car, index) => (
               <AnimatedSection key={car.id} delay={index * 100}>
                 <CarCard {...car} />
@@ -297,19 +263,19 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/apartments">
-                  <Button variant="hero" size="lg">
-                    Start Booking Now
+                  <Button variant="hero" size="lg" className="group">
+                    <Building2 className="w-5 h-5" />
+                    Browse Apartments
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
-                <a
-                  href="https://wa.me/250780399998"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="heroOutline" size="lg">
-                    Contact Us
+                <Link to="/cars">
+                  <Button variant="heroOutline" size="lg" className="group">
+                    <CarFront className="w-5 h-5" />
+                    Rent a Car
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </AnimatedSection>

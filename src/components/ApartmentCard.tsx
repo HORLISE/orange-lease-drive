@@ -47,7 +47,6 @@ export const ApartmentCard = ({
         
         {/* Price Tag */}
         <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground rounded-2xl px-4 py-2 shadow-lg">
-          <span className="text-sm">From </span>
           <span className="font-bold text-lg">${monthlyPrice.toLocaleString()}</span>
           <span className="text-primary-foreground/80 text-sm"> / month</span>
         </div>
