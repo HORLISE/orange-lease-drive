@@ -8,7 +8,6 @@ import { useState } from "react";
 
 import kiaSorentoBlack from "@/assets/kia-sorento-black.jpg";
 import kiaSorentoGrey from "@/assets/kia-sorento-grey.jpg";
-import kiaSorentoSilver from "@/assets/kia-sorento-silver.jpg";
 
 const cars = [
   {
@@ -18,8 +17,8 @@ const cars = [
     price: 75,
     image: kiaSorentoBlack,
     seats: 7,
-    transmission: "Auto",
-    fuelType: "Petrol",
+    transmission: "Automatic",
+    fuelType: "Diesel",
   },
   {
     id: "kia-sorento-grey",
@@ -28,18 +27,8 @@ const cars = [
     price: 75,
     image: kiaSorentoGrey,
     seats: 7,
-    transmission: "Auto",
-    fuelType: "Petrol",
-  },
-  {
-    id: "kia-sorento-silver",
-    name: "Kia Sorento 2012 Silver",
-    type: "SUV",
-    price: 75,
-    image: kiaSorentoSilver,
-    seats: 7,
-    transmission: "Auto",
-    fuelType: "Petrol",
+    transmission: "Automatic",
+    fuelType: "Diesel",
   },
 ];
 
@@ -67,8 +56,7 @@ const Cars = () => {
                 <span className="text-gradient"> Perfect Ride</span>
               </h1>
               <p className="text-muted-foreground text-lg">
-                From luxury sedans to eco-friendly electric vehicles, 
-                find the perfect car for your journey.
+                Reliable Kia Sorento 2012 SUVs for your comfortable travels.
               </p>
             </div>
           </AnimatedSection>
@@ -126,7 +114,7 @@ const Cars = () => {
             </select>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl">
             {filteredCars.map((car, index) => (
               <AnimatedSection key={car.id} delay={index * 100}>
                 <CarCard {...car} />
