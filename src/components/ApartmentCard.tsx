@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { MapPin, Bed, Bath, Wifi } from "lucide-react";
+import { MapPin, Bed, Bath, Wifi, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface ApartmentCardProps {
   id: string;
@@ -29,15 +30,14 @@ export const ApartmentCard = ({
   const monthlyPrice = price * 30;
   
   return (
-    <Link
-      to={`/apartments/${id}`}
+    <div
       className={cn(
-        "group block rounded-3xl overflow-hidden bg-card shadow-card hover-lift transition-all duration-500",
+        "group rounded-3xl overflow-hidden bg-card shadow-card hover-lift transition-all duration-500",
         featured && "md:col-span-2 md:row-span-2"
       )}
     >
       {/* Image */}
-      <div className="relative overflow-hidden aspect-[4/3]">
+      <Link to={`/apartments/${id}`} className="block relative overflow-hidden aspect-[4/3]">
         <img
           src={image}
           alt={name}
@@ -50,12 +50,12 @@ export const ApartmentCard = ({
           <span className="font-bold text-lg">${monthlyPrice.toLocaleString()}</span>
           <span className="text-primary-foreground/80 text-sm"> / month</span>
         </div>
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-5 space-y-3">
         <div>
-          <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+          <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300">
             {name}
           </h3>
           <div className="flex items-center gap-1.5 text-muted-foreground mt-1">
@@ -70,9 +70,9 @@ export const ApartmentCard = ({
             {amenities.map((amenity) => (
               <span
                 key={amenity}
-                className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-secondary text-xs text-muted-foreground"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-secondary text-sm text-muted-foreground"
               >
-                {amenity === "Free WiFi" && <Wifi size={12} />}
+                {amenity === "Free WiFi" && <Wifi size={14} />}
                 {amenity}
               </span>
             ))}
@@ -82,15 +82,23 @@ export const ApartmentCard = ({
         {/* Features */}
         <div className="flex items-center gap-4 pt-3 border-t border-border">
           <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Bed size={16} />
+            <Bed size={18} />
             <span className="text-sm">{bedrooms} beds</span>
           </div>
           <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Bath size={16} />
+            <Bath size={18} />
             <span className="text-sm">{bathrooms} bath</span>
           </div>
         </div>
+
+        {/* View Details Button */}
+        <Link to={`/apartments/${id}`} className="block pt-2">
+          <Button variant="outline" className="w-full group/btn">
+            View Details
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </Button>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };

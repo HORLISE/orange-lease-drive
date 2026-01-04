@@ -5,13 +5,17 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { 
   MapPin, Bed, Bath, Wifi, CarFront, Tv, 
-  Utensils, ArrowLeft, Calendar, Check, Play
+  Utensils, ArrowLeft, Calendar, Check, Play, Navigation, ExternalLink
 } from "lucide-react";
 import { useState } from "react";
 
-import apartmentProfile1 from "@/assets/apartment-profile-1.jpg";
+import chateauLiving from "@/assets/chateau-living.jpg";
+import chateauBedroom from "@/assets/chateau-bedroom.jpg";
+import chateauBalcony from "@/assets/chateau-balcony.jpg";
+import chateauBathroom from "@/assets/chateau-bathroom.jpg";
+import chateauKitchen from "@/assets/chateau-kitchen.jpg";
+import chateauGarden from "@/assets/chateau-garden.jpg";
 import apartmentProfile2 from "@/assets/apartment-profile-2.jpg";
-import apartment1 from "@/assets/apartment-1.jpg";
 import apartment2 from "@/assets/apartment-2.jpg";
 import apartment3 from "@/assets/apartment-3.jpg";
 
@@ -22,7 +26,7 @@ const apartmentData: Record<string, any> = {
     pricePerDay: 50,
     pricePerWeek: 300,
     pricePerMonth: 1000,
-    images: [apartmentProfile1, apartment1, apartment2],
+    images: [chateauLiving, chateauBedroom, chateauBalcony, chateauBathroom, chateauKitchen, chateauGarden],
     videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
     bedrooms: 3,
     bathrooms: 2,
@@ -40,6 +44,8 @@ const apartmentData: Record<string, any> = {
       "Quiet hours after 10 PM",
       "Valid ID required at check-in",
     ],
+    googleMapsLink: "https://maps.app.goo.gl/DDB6VcJhcBzq6JYA8",
+    locationGuide: "Our apartment is easy to find! Head to KK 5 Ave in Kigali. Look for the beautiful building with the landscaped garden. We're close to local shops and restaurants. If you need any help finding us, just give us a call and we'll guide you.",
   },
   "la-casa": {
     name: "La Casa",
@@ -62,31 +68,6 @@ const apartmentData: Record<string, any> = {
       "No smoking",
       "No parties or events",
       "Pets welcome",
-      "Quiet hours after 10 PM",
-      "Valid ID required at check-in",
-    ],
-  },
-  "downtown-plaza": {
-    name: "Downtown Plaza Suite",
-    location: "Downtown Plaza",
-    pricePerDay: 40,
-    pricePerWeek: 250,
-    pricePerMonth: 800,
-    images: [apartmentProfile2, apartment1, apartment3],
-    videoUrl: "https://player.vimeo.com/video/824804225?h=c4f3cd6b4f&autoplay=1&muted=1",
-    bedrooms: 2,
-    bathrooms: 2,
-    description: "Experience luxury urban living in our stunning Downtown Plaza Suite. This spacious apartment offers city views, modern amenities, and is steps away from the best restaurants and shops.",
-    amenities: [
-      { icon: Wifi, label: "High-Speed WiFi" },
-      { icon: CarFront, label: "Free Parking" },
-      { icon: Tv, label: "Smart TV" },
-      { icon: Utensils, label: "Fully Equipped Kitchen" },
-    ],
-    terms: [
-      "No smoking",
-      "No parties or events",
-      "Pets allowed (with prior approval)",
       "Quiet hours after 10 PM",
       "Valid ID required at check-in",
     ],
@@ -283,6 +264,31 @@ const ApartmentDetail = () => {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Location & Directions - Only for Chateau Mignon */}
+                  {apartment.googleMapsLink && (
+                    <div>
+                      <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                        <Navigation size={20} className="text-primary" />
+                        Location & Directions
+                      </h2>
+                      <div className="space-y-4">
+                        <p className="text-muted-foreground leading-relaxed">
+                          {apartment.locationGuide}
+                        </p>
+                        <a
+                          href={apartment.googleMapsLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-3 rounded-xl font-medium transition-colors duration-300"
+                        >
+                          <MapPin size={18} />
+                          Open in Google Maps
+                          <ExternalLink size={16} />
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </AnimatedSection>
             </div>
